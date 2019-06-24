@@ -7,7 +7,7 @@ module.exports = async () => {
     const targets = await Good.findAll({
       where: {
         soldId: null,
-        createdAt: { $lte: yesterday },
+        createdAt: { [sequelize.Op.lte]: yesterday },
       },
     });
     targets.forEach(async (target) => {
